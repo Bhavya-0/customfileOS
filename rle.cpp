@@ -34,7 +34,7 @@ void writef(string fname, string S)
         return;
     }
    
-    cout << "Successfully Written in the file." << endl;
+    cout << "Successfully Written to file." << endl;
 }
 
 void Encode(std::string &inputstring, std::string &outputstring)

@@ -2,7 +2,7 @@
 #include <fstream>
 
 using namespace std;
-
+// Function to open a file and read its content into a string
 string open(string fname)
 {
     ifstream file(fname);
@@ -10,7 +10,7 @@ string open(string fname)
 
     if (file.is_open()) {
         while (getline(file, line)) {
-            S += line;
+            S += line;        // Concatenate the lines into a single string
         }
         file.close();
     } else {
@@ -18,9 +18,9 @@ string open(string fname)
     }
    
     cout << "File content: " << S << endl;
-    return S;
+    return S;                 // Return the content of the file as a string
 }
-
+// Function to write a string to a file
 void writef(string fname, string S)
 {
     ofstream file(fname);
@@ -36,24 +36,24 @@ void writef(string fname, string S)
    
     cout << "Successfully Written to file." << endl;
 }
-
+// Function to perform Run-Length Encoding
 void Encode(std::string &inputstring, std::string &outputstring)
 {
     for (int i = 0; i < inputstring.length(); i++) {
         int count = 1;
-        while (inputstring[i] == inputstring[i+1]) {
+        while (inputstring[i] == inputstring[i+1]) {     // Count consecutive occurrences of the same character
             count++;
             i++;
         }
         if(count <= 1) {
-            outputstring += inputstring[i];
+            outputstring += inputstring[i];             // Append the character to the output string
         } else {
             outputstring += std::to_string(count);
             outputstring += inputstring[i];
         }
     }
 }
-
+// Function to perform Run-Length Decoding
 void Decompress(std::string &compressed, std::string &original)
 {
     for (int i = 0; i < compressed.length(); i++) {
@@ -64,7 +64,7 @@ void Decompress(std::string &compressed, std::string &original)
             }
             i++;
         } else {
-            original += compressed[i];
+            original += compressed[i];       //end the character to the original string
         }
     }
 }
@@ -78,7 +78,7 @@ int main() {
 
     std::string S = open(ifname);
     std::string compressedString;
-    Encode(S, compressedString);
+    Encode(S, compressedString);       // Compress the input string using Run-Length Encoding
     std::cout << "Compressed String: " << compressedString << std::endl;
 
     std::string decompressedString;

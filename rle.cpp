@@ -71,6 +71,7 @@ void Decompress(std::string &compressed, std::string &original)
 
 int main() {
     string ifname;
+    cout<<"Welcome to the Project, this project aims to develop a custom file extension aiming to losslessly compress text file (Currently RLE employed)"<<endl<<endl;
     cout<<"Enter the input filename: ";
     cin>>ifname;
     
